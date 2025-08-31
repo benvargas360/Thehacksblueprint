@@ -104,12 +104,13 @@ function Hero() {
 }
 
 function Trustbar() {
-  const items = [
-    "Basado en evidencia",
-    "Ciencia aplicada",
-    "Acciona hoy, tu eres tu mejor inversion",
-    "Hecho con cariño en Hobart, AU",
-  ];
+ const items = [
+  "Ciencia aplicada",
+  "Simple y accionable",
+  "Energía sostenible",
+  "Bienestar integral",
+];
+
   return (
     <div className="border-y border-gray-100 bg-white/80">
       <div className="mx-auto max-w-6xl px-5">

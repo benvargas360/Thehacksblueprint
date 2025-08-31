@@ -14,6 +14,7 @@ export default function App() {
       <Hero />
       <Trustbar />
       <Highlights />
+      <Articles />
       <CTA />
       <Footer />
     </div>

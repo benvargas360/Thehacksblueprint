@@ -106,8 +106,8 @@ function Hero() {
 function Trustbar() {
   const items = [
     "Basado en evidencia",
-    "Minimalista y práctico",
-    "Estética cuidada",
+    "Ciencia aplicada",
+    "Acciona hoy, tu eres tu mejor inversion",
     "Hecho con cariño en Hobart, AU",
   ];
   return (
@@ -130,15 +130,15 @@ function Highlights() {
   const cards = [
     {
       t: "Guías accionables",
-      d: "Protocolos simples de sueño, energía y enfoque. Sin relleno.",
+      d: "Protocolos simples de sueño, energía y enfoque.",
     },
     {
       t: "Selección de productos",
-      d: "Herramientas esenciales con diseño elegante para un estilo de vida saludable.",
+      d: "Herramientas esenciales para un estilo de vida saludable.",
     },
     {
       t: "Newsletter semanal",
-      d: "3 ideas, 2 hallazgos y 1 hábito cada jueves.",
+      d: "Ideas, hallazgos y hábitos cada semana.",
     },
   ];
   return (

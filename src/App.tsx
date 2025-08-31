@@ -192,7 +192,179 @@ function CTA() {
     </section>
   );
 }
+function Articles() {
+  type Post = {
+    tag: string;
+    title: string;
+    excerpt: string;
+    content: React.ReactNode;
+  };
 
+  const posts: Post[] = [
+    {
+      tag: "Sueño",
+      title: "Luz de la mañana: el micro-hábito que regula tu reloj interno",
+      excerpt:
+        "Con 10–20 min de luz natural en la mañana puedes mejorar sueño, energía y estado de ánimo.",
+      content: (
+        <div className="space-y-3 text-gray-700">
+          <p>
+            La luz de espectro completo al despertar sincroniza el núcleo
+            supraquiasmático (tu “reloj biológico”), reforzando el ritmo
+            circadiano. Esto ayuda a que la melatonina se libere a la hora
+            correcta por la noche y facilita conciliar el sueño.
+          </p>
+          <ul className="list-disc list-inside">
+            <li>
+              <strong>Protocolo:</strong> 10–20 min de luz exterior (más si está
+              nublado) dentro de las 1–2 h tras despertar. Evita gafas muy
+              oscuras durante este rato.
+            </li>
+            <li>
+              <strong>Bonus:</strong> algo de movimiento suave (caminar) acelera
+              el proceso.
+            </li>
+            <li>
+              <strong>Por la noche:</strong> baja intensidad y luz cálida para no
+              “desincronizar”.
+            </li>
+          </ul>
+          <p className="text-sm text-gray-600">
+            Evidencia: la exposición matutina a luz brillante es un
+            sincronizador circadiano robusto asociado con mejor latencia de
+            sueño y ánimo.
+          </p>
+        </div>
+      ),
+    },
+    {
+      tag: "Energía",
+      title: "Frío bien hecho: protocolo seguro de 11 minutos por semana",
+      excerpt:
+        "Exposición breve y progresiva al frío puede elevar energía y resiliencia, con seguridad primero.",
+      content: (
+        <div className="space-y-3 text-gray-700">
+          <p>
+            La exposición al frío activa noradrenalina y dopamina, mejora la
+            tolerancia al estrés y puede apoyar la recuperación. La clave es
+            <em> dosis y progresión</em>.
+          </p>
+          <ul className="list-disc list-inside">
+            <li>
+              <strong>Protocolo sugerido:</strong> 11 min/semana totales en 2–4
+              sesiones (ej., 2–3 min por inmersión). Agua “desafiante pero
+              manejable” (que te haga jadear al entrar, pero manteniendo control
+              respiratorio).
+            </li>
+            <li>
+              <strong>Respira por la nariz</strong> y mantén el cuerpo relajado.
+            </li>
+            <li>
+              <strong>Contraindicaciones:</strong> cardiopatías, hipertensión no
+              controlada, embarazo; consulta con tu médico.
+            </li>
+            <li>
+              <strong>Timing:</strong> si tu objetivo es recuperación de fuerza,
+              evita el frío intenso justo después del entrenamiento de
+              hipertrofia (puede atenuar adaptaciones); usa frío en días
+              separados o muchas horas después.
+            </li>
+          </ul>
+          <p className="text-sm text-gray-600">
+            Evidencia: estudios muestran aumentos agudos de noradrenalina y
+            adaptaciones al estrés con exposición al frío; el efecto sobre
+            fuerza/hipertrofia depende del momento.
+          </p>
+        </div>
+      ),
+    },
+    {
+      tag: "Respiración",
+      title: "Respirar por la nariz: más óxido nítrico, mejor sueño y foco",
+      excerpt:
+        "La respiración nasal filtra, humedece y calienta el aire; además favorece el óxido nítrico.",
+      content: (
+        <div className="space-y-3 text-gray-700">
+          <p>
+            Respirar por la nariz incrementa la disponibilidad de óxido nítrico
+            (NO) en vías aéreas, lo que puede mejorar la oxigenación y la
+            regulación del flujo de aire. En la práctica diaria, esto se asocia
+            con menor ronquido y mejor calidad subjetiva de sueño en algunas
+            personas.
+          </p>
+          <ul className="list-disc list-inside">
+            <li>
+              <strong>Práctica diaria:</strong> intenta mantener la boca cerrada
+              en reposo y al caminar. En entrenamientos suaves, respira por la
+              nariz para entrenar el patrón.
+            </li>
+            <li>
+              <strong>Noche:</strong> tiras nasales pueden ayudar si tienes
+              congestión leve (no sustituyen atención médica).
+            </li>
+            <li>
+              <strong>Alerta:</strong> si hay apnea del sueño o obstrucción
+              severa, consulta a un profesional.
+            </li>
+          </ul>
+          <p className="text-sm text-gray-600">
+            Evidencia: la respiración nasal favorece la producción de NO, con
+            efectos beneficiosos locales; se investigan impactos en rendimiento
+            y sueño.
+          </p>
+        </div>
+      ),
+    },
+  ];
+
+  const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+
+  return (
+    <section id="articles" className="py-16 md:py-24 bg-white">
+      <div className="mx-auto max-w-6xl px-5">
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-8">
+          Artículos
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {posts.map((p, i) => (
+            <article
+              key={p.title}
+              className="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-emerald-700">
+                  {p.tag}
+                </span>
+                <span className="text-xs text-gray-500">Lectura 3–5 min</span>
+              </div>
+              <h3 className="mt-3 text-xl font-bold">{p.title}</h3>
+              <p className="mt-2 text-gray-700 flex-1">{p.excerpt}</p>
+
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="mt-4 self-start text-sm font-semibold text-emerald-700 hover:underline"
+              >
+                {openIndex === i ? "Cerrar" : "Leer más →"}
+              </button>
+
+              {openIndex === i && (
+                <div className="mt-4 rounded-xl border border-gray-100 bg-emerald-50/40 p-4">
+                  {p.content}
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+
+        <p className="mt-6 text-center text-xs text-gray-500">
+          Nota: Estos contenidos no sustituyen consejo médico. Ante síntomas o
+          condiciones, consulta a un profesional de la salud.
+        </p>
+      </div>
+    </section>
+  );
+}
 function Footer() {
   return (
     <footer className="border-t border-gray-100">

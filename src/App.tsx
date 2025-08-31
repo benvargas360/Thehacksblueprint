@@ -76,10 +76,10 @@ function Hero() {
             </span>{" "}
             para vivir mejor
           </h1>
-          <p className="mt-5 text-lg text-gray-700">
-            Consejos claros, hábitos sencillos y productos que inspiran calma y confianza. Un espacio
-            profesional para ayudarte a sentirte y rendir mejor.
-          </p>
+         <p className="mt-5 text-lg text-gray-700">
+  Calma, energía, enfoque. Lo esencial del wellness y el biohacking, explicado simple y respaldado por evidencia.
+</p>
+
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
             <a
               href="#newsletter"

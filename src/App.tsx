@@ -1,5 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const bg =
   "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920&auto=format&fit=crop";
@@ -14,6 +20,7 @@ export default function App() {
       <Trustbar />
       <Highlights />
       <Articles />
+      <ArticlesSummary />
       <CTA />
       <Footer />
     </div>
@@ -58,7 +65,7 @@ function Header() {
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Imagen de fondo */}
+      {/* Fondo con foto de hojas verdes */}
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -68,14 +75,13 @@ function Hero() {
         }}
         aria-hidden
       />
-      {/* Capa de degradado suave */}
+      {/* Degradado para suavizar el fondo */}
       <div
         className="absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/70 to-white"
         aria-hidden
       />
-
       <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -91,7 +97,6 @@ function Hero() {
           <p className="mt-5 text-lg text-gray-700">
             Calma, energía, enfoque. Lo esencial del wellness y el biohacking, explicado de forma sencilla y respaldado por evidencia.
           </p>
-
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
             <a
               href="#newsletter"
@@ -156,54 +161,45 @@ function Highlights() {
   ];
   return (
     <section id="about" className="py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-5 grid md:grid-cols-3 gap-6">
-        {cards.map((c) => (
-          <div
-            key={c.t}
-            className="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-6"
-            style={{
-              backgroundImage: `url(${texture})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundBlendMode: "soft-light",
-            }}
-          >
-            <h3 className="text-lg font-semibold">{c.t}</h3>
-            <p className="mt-2 text-gray-700">{c.d}</p>
+      <div className="mx-auto max-w-6xl px-5">
+        {/* Biografía */}
+        <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
+          {/* Foto de presentación (sustituye la URL por tu propia foto si quieres) */}
+          <img
+            src="https://unavatar.io/facebook/thehacksblueprint"
+            alt="Foto de Benjamin"
+            className="w-40 h-40 rounded-full object-cover"
+          />
+          <div className="flex-1">
+            <h2 className="text-3xl font-extrabold mb-2">Sobre mí</h2>
+            <p className="text-gray-700">
+              Soy Benjamin, fundador de The Hacks Blueprint. Durante años llevé
+              una vida centrada en el trabajo y poco saludable, hasta que un
+              problema de salud me obligó a replantear mis hábitos. Empecé a
+              estudiar bienestar, nutrición y prácticas ancestrales, y descubrí el
+              mundo del biohacking como una forma de optimizar cuerpo y mente. Ahora comparto
+              protocolos y herramientas para ayudarte a vivir de forma
+              inteligente, consciente y con energía.
+            </p>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function CTA() {
-  return (
-    <section id="newsletter" className="py-16 md:py-20">
-      <div className="mx-auto max-w-4xl px-5">
-        <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-emerald-50 to-cyan-50 p-6 md:p-10">
-          <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">Empieza hoy</h3>
-          <p className="mt-2 text-gray-700">
-            Suscríbete y recibe hábitos fáciles de aplicar, resúmenes de estudios y herramientas
-            para sentirte mejor.
-          </p>
-          <form onSubmit={(e) => e.preventDefault()} className="mt-6 grid md:grid-cols-[1fr_auto] gap-3">
-            <input
-              type="email"
-              required
-              placeholder="Tu email"
-              className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-400"
-            />
-            <button
-              type="submit"
-              className="rounded-xl bg-gray-900 px-6 py-3 text-white font-semibold hover:bg-gray-800"
+        </div>
+        {/* Tarjetas con servicios/destacados */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {cards.map((c) => (
+            <div
+              key={c.t}
+              className="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-6"
+              style={{
+                backgroundImage: `url(${texture})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundBlendMode: "soft-light",
+              }}
             >
-              Suscribirme
-            </button>
-          </form>
-          <p className="mt-3 text-xs text-gray-500">
-            Puedes darte de baja cuando quieras.
-          </p>
+              <h3 className="text-lg font-semibold">{c.t}</h3>
+              <p className="mt-2 text-gray-700">{c.d}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -277,7 +273,7 @@ function Articles() {
             <li>
               <strong>Respira por la nariz</strong> y mantén el cuerpo relajado.
             </li>
-              <li>
+            <li>
               <strong>Contraindicaciones:</strong> cardiopatías, hipertensión no
               controlada, embarazo; consulta con tu médico.
             </li>
@@ -384,13 +380,106 @@ function Articles() {
   );
 }
 
+function ArticlesSummary() {
+  return (
+    <section className="p-6 bg-white">
+      <div className="mx-auto max-w-6xl grid gap-6 md:grid-cols-3">
+        <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">
+              Meditation: Unlocking Mental Clarity
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            <p>
+              Meditation trains your brain to be present, reduce stress, and
+              improve focus. Just 10–15 minutes daily can lower cortisol and
+              improve long-term emotional balance. Techniques like mindfulness
+              or NSDR are accessible even for beginners.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">
+              Intermittent Fasting: Fuel for Longevity
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            <p>
+              Intermittent fasting is more than a diet — it’s a metabolic
+              reset. Following a 16/8 or 18/6 window can improve insulin
+              sensitivity, promote fat loss, and trigger autophagy (cellular
+              repair). The key: consistency and hydration.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
+          <CardHeader>
+            <CardTitle className="text-xl font-semibold">
+              Breathing Techniques for Energy &amp; Calm
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="text-gray-600">
+            <p>
+              Breath is the bridge between body and mind. Nasal breathing
+              boosts nitric oxide, enhancing oxygen delivery. Practices like
+              box breathing calm the nervous system, while Wim Hof–style
+              breathing can boost energy and resilience.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  );
+}
+
+function CTA() {
+  return (
+    <section id="newsletter" className="py-16 md:py-20">
+      <div className="mx-auto max-w-4xl px-5">
+        <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-emerald-50 to-cyan-50 p-6 md:p-10">
+          <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+            Empieza hoy
+          </h3>
+          <p className="mt-2 text-gray-700">
+            Suscríbete y recibe hábitos fáciles de aplicar, resúmenes de
+            estudios y herramientas para sentirte mejor.
+          </p>
+          <form onSubmit={(e) => e.preventDefault()} className="mt-6 grid md:grid-cols-[1fr_auto] gap-3">
+            <input
+              type="email"
+              required
+              placeholder="Tu email"
+              className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            />
+            <button
+              type="submit"
+              className="rounded-xl bg-gray-900 px-6 py-3 text-white font-semibold hover:bg-gray-800"
+            >
+              Suscribirme
+            </button>
+          </form>
+          <p className="mt-3 text-xs text-gray-500">
+            Puedes darte de baja cuando quieras.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="border-t border-gray-100">
       <div className="mx-auto max-w-6xl px-5 py-10 grid md:grid-cols-2 gap-6 items-center">
         <div>
           <p className="font-bold">The Hacks Blueprint</p>
-          <p className="text-sm text-gray-600">Por Benjamin — Hobart, Tasmania</p>
+          <p className="text-sm text-gray-600">
+            Por Benjamin — Hobart, Tasmania
+          </p>
         </div>
         <div className="md:text-right text-sm text-gray-600">
           © {new Date().getFullYear()} — Todos los derechos reservados.

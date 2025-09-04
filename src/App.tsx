@@ -150,7 +150,7 @@ function About() {
         <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
           {/* Reemplaza la URL por tu foto real si quieres */}
           <img
-            src="https://unavatar.io/facebook/thehacksblueprint"
+            src="https://www.instagram.com/thehacksblueprint/"
             alt="Foto de Benjamin"
             className="w-40 h-40 rounded-full object-cover ring-4 ring-emerald-100"
           />

@@ -148,9 +148,9 @@ function About() {
     <section id="about" className="scroll-mt-24 py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
-          {/* Reemplaza la URL por tu foto real si quieres */}
+          {/* Imagen de perfil cargada desde Unavatar (Instagram) */}
           <img
-            src="https://scontent-syd2-1.cdninstagram.com/v/t51.2885-19/525580769_17868165234421639_6590502192457192706_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby45OTAuYzIifQ&_nc_ht=scontent-syd2-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QHAbHvNmD6w0F4m6J-MA7_JhkDBz0gejYNGG5rCdhLb4ynGxx8j4d2wJKrWVtdxwQ4&_nc_ohc=JhpiMLijtUYQ7kNvwEOQgaE&_nc_gid=RTVFWSOldgMB4CRX1gwCTw&edm=AIhb9MIBAAAA&ccb=7-5&oh=00_AfbcLzLxMzmW_tULLAuKAOkvD2TKbnsUlcl888HDYdKeyg&oe=68BF3E67&_nc_sid=8aafe2"
+            src="https://unavatar.io/instagram/thehacksblueprint"
             alt="Foto de Benjamin"
             className="w-40 h-40 rounded-full object-cover ring-4 ring-emerald-100"
           />
@@ -232,7 +232,6 @@ function Articles() {
   };
 
   const posts: Post[] = [
-    // 1) Luz de la mañana (ya lo tenías)
     {
       tag: "Sueño",
       title: "Luz de la mañana: el micro-hábito que regula tu reloj interno",
@@ -246,22 +245,13 @@ function Articles() {
             noche.
           </p>
           <ul className="list-disc list-inside">
-            <li>
-              <strong>Protocolo:</strong> 10–20 min de luz exterior (más si
-              está nublado) dentro de las 1–2 h tras despertar.
-            </li>
-            <li>
-              Movimiento suave (caminar) acelera el proceso.
-            </li>
-            <li>
-              Por la noche, baja intensidad y tonos cálidos para no
-              desincronizarte.
-            </li>
+            <li>10–20 min de luz exterior dentro de las 1–2 h tras despertar.</li>
+            <li>Movimiento suave (caminar) acelera el proceso.</li>
+            <li>Baja la intensidad y calidez de la luz por la noche.</li>
           </ul>
         </div>
       ),
     },
-    // 2) Frío (ya lo tenías)
     {
       tag: "Energía",
       title: "Frío bien hecho: protocolo seguro de 11 minutos por semana",
@@ -271,24 +261,17 @@ function Articles() {
         <div className="space-y-3 text-gray-700">
           <p>
             El frío activa noradrenalina y dopamina, mejora tolerancia al estrés
-            y puede apoyar la recuperación. La clave es{" "}
-            <em>dosis y progresión</em>.
+            y puede apoyar la recuperación. La clave es dosis y progresión.
           </p>
           <ul className="list-disc list-inside">
-            <li>
-              11 min/semana totales en 2–4 sesiones (2–3 min por inmersión).
-            </li>
+            <li>11 min/semana totales en 2–4 sesiones.</li>
             <li>Respira por la nariz y mantén el cuerpo relajado.</li>
-            <li>
-              Evítalo justo después de fuerza si buscas hipertrofia (posibles
-              interferencias).
-            </li>
-            <li>Consulta si tienes condiciones médicas.</li>
+            <li>Evítalo justo después de fuerza si buscas hipertrofia.</li>
+            <li>Consulta a tu médico si tienes condiciones médicas.</li>
           </ul>
         </div>
       ),
     },
-    // 3) Respiración nasal (ya lo tenías)
     {
       tag: "Respiración",
       title: "Respirar por la nariz: más óxido nítrico, mejor sueño y foco",
@@ -297,22 +280,17 @@ function Articles() {
       content: (
         <div className="space-y-3 text-gray-700">
           <p>
-            El NO nasal puede mejorar la oxigenación y la regulación del flujo
-            de aire. En el día a día, esto se asocia con menos ronquido y mejor
-            percepción de descanso en algunas personas.
+            El óxido nítrico nasal puede mejorar la oxigenación y la regulación
+            del flujo de aire. Esto se asocia con menos ronquido y mejor descanso.
           </p>
           <ul className="list-disc list-inside">
-            <li>
-              Mantén la boca cerrada en reposo y al caminar (entrena el
-              patrón).
-            </li>
+            <li>Mantén la boca cerrada al respirar en reposo y al caminar.</li>
             <li>Usa tiras nasales si tienes congestión leve.</li>
-            <li>Consulta ante apnea u obstrucción severa.</li>
+            <li>Consulta en caso de apnea u obstrucción severa.</li>
           </ul>
         </div>
       ),
     },
-    // 4) Meditación (nuevo)
     {
       tag: "Mindfulness",
       title: "Meditación en 10 minutos: foco y calma entrenables",
@@ -321,13 +299,12 @@ function Articles() {
       content: (
         <div className="space-y-3 text-gray-700">
           <p>
-            Siéntate cómodo/a, ojos suavemente cerrados y lleva la atención a
-            la respiración. Cuando la mente divague, vuelve sin juicio. Empieza
-            con 10 minutos diarios.
+            Siéntate cómodo/a, ojos suavemente cerrados y lleva la atención a la
+            respiración. Cuando la mente divague, vuelve sin juicio.
           </p>
           <ul className="list-disc list-inside">
-            <li>Marca una hora fija (idealmente mañana o mediodía).</li>
-            <li>Usa un temporizador y registra en un cuaderno.</li>
+            <li>Empieza con 10 minutos diarios.</li>
+            <li>Marca una hora fija (mañana o mediodía).</li>
             <li>
               Alterna con NSDR/Yoga Nidra (10–20 min) para recuperación y foco.
             </li>
@@ -335,7 +312,6 @@ function Articles() {
         </div>
       ),
     },
-    // 5) Ayuno Intermitente (nuevo)
     {
       tag: "Nutrición",
       title: "Ayuno intermitente sin dogmas: empieza por 12/12",
@@ -345,8 +321,8 @@ function Articles() {
         <div className="space-y-3 text-gray-700">
           <p>
             Comienza con 12/12 (p. ej., 7:30–19:30). Si te sienta bien, prueba
-            10/14 u 8/16. No es para todos: evita si tienes bajo peso, TCA,
-            embarazo o indicación médica en contra.
+            10/14 u 8/16. Evita si tienes bajo peso, TCA, embarazo o indicación
+            médica en contra.
           </p>
           <ul className="list-disc list-inside">
             <li>Cena 2–3 h antes de dormir.</li>
@@ -356,7 +332,6 @@ function Articles() {
         </div>
       ),
     },
-    // 6) Técnicas de respiración (nuevo)
     {
       tag: "Respiración",
       title: "Box y coherencia: regula tu sistema nervioso en 5 min",
@@ -366,8 +341,8 @@ function Articles() {
         <div className="space-y-3 text-gray-700">
           <p>
             La respiración es el control remoto del sistema nervioso. Usa
-            <em> box breathing</em> (4-4-4-4) en situaciones exigentes y{" "}
-            <em>coherencia</em> (4 s inhalar, 6 s exhalar) para bajar revoluciones.
+            “box breathing” (4-4-4-4) en situaciones exigentes y coherencia (4 s
+            inhalar, 6 s exhalar) para relajarte.
           </p>
           <ul className="list-disc list-inside">
             <li>Haz 5 minutos al día; aumenta si lo disfrutas.</li>
@@ -472,7 +447,9 @@ function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-10 grid md:grid-cols-2 gap-6 items-center">
         <div>
           <p className="font-bold">The Hacks Blueprint</p>
-          <p className="text-sm text-gray-600">Por Benjamin — Hobart, Tasmania</p>
+          <p className="text-sm text-gray-600">
+            Por Benjamin — Hobart, Tasmania
+          </p>
         </div>
         <div className="md:text-right text-sm text-gray-600">
           © {new Date().getFullYear()} — Todos los derechos reservados.

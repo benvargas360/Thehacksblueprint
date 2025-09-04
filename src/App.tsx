@@ -1,11 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const bg =
   "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920&auto=format&fit=crop";
@@ -14,13 +8,13 @@ const texture =
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div id="top" className="min-h-screen bg-white text-gray-900">
       <Header />
       <Hero />
       <Trustbar />
+      <About />
       <Highlights />
       <Articles />
-      <ArticlesSummary />
       <CTA />
       <Footer />
     </div>
@@ -65,7 +59,7 @@ function Header() {
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Fondo con foto de hojas verdes */}
+      {/* Fondo */}
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -75,13 +69,14 @@ function Hero() {
         }}
         aria-hidden
       />
-      {/* Degradado para suavizar el fondo */}
+      {/* Degradado */}
       <div
         className="absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/70 to-white"
         aria-hidden
       />
+
       <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-      <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -97,6 +92,7 @@ function Hero() {
           <p className="mt-5 text-lg text-gray-700">
             Calma, energía, enfoque. Lo esencial del wellness y el biohacking, explicado de forma sencilla y respaldado por evidencia.
           </p>
+
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
             <a
               href="#newsletter"
@@ -144,6 +140,48 @@ function Trustbar() {
   );
 }
 
+/** ------------------------
+ *  SOBRE MÍ (BIO + FOTO)
+ *  ------------------------ */
+function About() {
+  return (
+    <section id="about" className="scroll-mt-24 py-16 md:py-20">
+      <div className="mx-auto max-w-6xl px-5">
+        <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
+          {/* Reemplaza la URL por tu foto real si quieres */}
+          <img
+            src="https://unavatar.io/facebook/thehacksblueprint"
+            alt="Foto de Benjamin"
+            className="w-40 h-40 rounded-full object-cover ring-4 ring-emerald-100"
+          />
+          <div className="flex-1">
+            <h2 className="text-3xl font-extrabold mb-2">Sobre mí</h2>
+            <p className="text-gray-700">
+              Soy Benjamin, fundador de The Hacks Blueprint. Durante años viví
+              en “modo automático”: mucho trabajo, poco descanso y hábitos que
+              no me hacían bien. Un problema de salud me obligó a frenar y
+              replantear mi vida. Empecé a estudiar bienestar, nutrición y
+              prácticas ancestrales, y descubrí el biohacking como una forma
+              simple y efectiva de optimizar cuerpo y mente. Hoy comparto
+              protocolos claros y herramientas elegantes para ayudarte a vivir
+              con intención, energía y calma.
+            </p>
+          </div>
+        </div>
+
+        {/* Ancla de Productos para que el menú no falle */}
+        <div id="products" className="scroll-mt-24 rounded-2xl border border-gray-200 p-6 bg-white">
+          <h3 className="text-lg font-semibold">Productos</h3>
+          <p className="mt-2 text-gray-700">
+            Muy pronto: una selección curada de herramientas para un estilo de
+            vida saludable.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Highlights() {
   const cards = [
     {
@@ -160,52 +198,31 @@ function Highlights() {
     },
   ];
   return (
-    <section id="about" className="py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-5">
-        {/* Biografía */}
-        <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
-          {/* Foto de presentación (sustituye la URL por tu propia foto si quieres) */}
-          <img
-            src="https://unavatar.io/facebook/thehacksblueprint"
-            alt="Foto de Benjamin"
-            className="w-40 h-40 rounded-full object-cover"
-          />
-          <div className="flex-1">
-            <h2 className="text-3xl font-extrabold mb-2">Sobre mí</h2>
-            <p className="text-gray-700">
-              Soy Benjamin, fundador de The Hacks Blueprint. Durante años llevé
-              una vida centrada en el trabajo y poco saludable, hasta que un
-              problema de salud me obligó a replantear mis hábitos. Empecé a
-              estudiar bienestar, nutrición y prácticas ancestrales, y descubrí el
-              mundo del biohacking como una forma de optimizar cuerpo y mente. Ahora comparto
-              protocolos y herramientas para ayudarte a vivir de forma
-              inteligente, consciente y con energía.
-            </p>
+    <section className="py-16 md:py-20">
+      <div className="mx-auto max-w-6xl px-5 grid md:grid-cols-3 gap-6">
+        {cards.map((c) => (
+          <div
+            key={c.t}
+            className="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-6"
+            style={{
+              backgroundImage: `url(${texture})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundBlendMode: "soft-light",
+            }}
+          >
+            <h3 className="text-lg font-semibold">{c.t}</h3>
+            <p className="mt-2 text-gray-700">{c.d}</p>
           </div>
-        </div>
-        {/* Tarjetas con servicios/destacados */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {cards.map((c) => (
-            <div
-              key={c.t}
-              className="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-6"
-              style={{
-                backgroundImage: `url(${texture})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundBlendMode: "soft-light",
-              }}
-            >
-              <h3 className="text-lg font-semibold">{c.t}</h3>
-              <p className="mt-2 text-gray-700">{c.d}</p>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </section>
   );
 }
 
+/** ------------------------
+ *  ARTÍCULOS (6 posts)
+ *  ------------------------ */
 function Articles() {
   type Post = {
     tag: string;
@@ -215,6 +232,7 @@ function Articles() {
   };
 
   const posts: Post[] = [
+    // 1) Luz de la mañana (ya lo tenías)
     {
       tag: "Sueño",
       title: "Luz de la mañana: el micro-hábito que regula tu reloj interno",
@@ -223,109 +241,139 @@ function Articles() {
       content: (
         <div className="space-y-3 text-gray-700">
           <p>
-            La luz de espectro completo al despertar sincroniza el núcleo
-            supraquiasmático (tu “reloj biológico”), reforzando el ritmo
-            circadiano. Esto ayuda a que la melatonina se libere a la hora
-            correcta por la noche y facilita conciliar el sueño.
+            La luz al despertar sincroniza tu “reloj biológico”, lo que promueve
+            melatonina a la hora correcta y facilita conciliar el sueño por la
+            noche.
           </p>
           <ul className="list-disc list-inside">
             <li>
-              <strong>Protocolo:</strong> 10–20 min de luz exterior (más si está
-              nublado) dentro de las 1–2 h tras despertar. Evita gafas muy
-              oscuras durante este rato.
+              <strong>Protocolo:</strong> 10–20 min de luz exterior (más si
+              está nublado) dentro de las 1–2 h tras despertar.
             </li>
             <li>
-              <strong>Bonus:</strong> algo de movimiento suave (caminar) acelera
-              el proceso.
+              Movimiento suave (caminar) acelera el proceso.
             </li>
             <li>
-              <strong>Por la noche:</strong> baja intensidad y luz cálida para no
-              “desincronizar”.
+              Por la noche, baja intensidad y tonos cálidos para no
+              desincronizarte.
             </li>
           </ul>
-          <p className="text-sm text-gray-600">
-            Evidencia: la exposición matutina a luz brillante es un
-            sincronizador circadiano robusto asociado con mejor latencia de
-            sueño y ánimo.
-          </p>
         </div>
       ),
     },
+    // 2) Frío (ya lo tenías)
     {
       tag: "Energía",
       title: "Frío bien hecho: protocolo seguro de 11 minutos por semana",
       excerpt:
-        "Exposición breve y progresiva al frío puede elevar energía y resiliencia, con seguridad primero.",
+        "Exposición breve y progresiva al frío puede elevar energía y resiliencia. Seguridad primero.",
       content: (
         <div className="space-y-3 text-gray-700">
           <p>
-            La exposición al frío activa noradrenalina y dopamina, mejora la
-            tolerancia al estrés y puede apoyar la recuperación. La clave es{" "}
+            El frío activa noradrenalina y dopamina, mejora tolerancia al estrés
+            y puede apoyar la recuperación. La clave es{" "}
             <em>dosis y progresión</em>.
           </p>
           <ul className="list-disc list-inside">
             <li>
-              <strong>Protocolo sugerido:</strong> 11 min/semana totales en 2–4
-              sesiones (ej., 2–3 min por inmersión). Agua “desafiante pero
-              manejable” (que te haga jadear al entrar, pero manteniendo control
-              respiratorio).
+              11 min/semana totales en 2–4 sesiones (2–3 min por inmersión).
             </li>
+            <li>Respira por la nariz y mantén el cuerpo relajado.</li>
             <li>
-              <strong>Respira por la nariz</strong> y mantén el cuerpo relajado.
+              Evítalo justo después de fuerza si buscas hipertrofia (posibles
+              interferencias).
             </li>
-            <li>
-              <strong>Contraindicaciones:</strong> cardiopatías, hipertensión no
-              controlada, embarazo; consulta con tu médico.
-            </li>
-            <li>
-              <strong>Timing:</strong> si tu objetivo es recuperación de fuerza,
-              evita el frío intenso justo después del entrenamiento de
-              hipertrofia (puede atenuar adaptaciones); usa frío en días
-              separados o muchas horas después.
-            </li>
+            <li>Consulta si tienes condiciones médicas.</li>
           </ul>
-          <p className="text-sm text-gray-600">
-            Evidencia: estudios muestran aumentos agudos de noradrenalina y
-            adaptaciones al estrés con exposición al frío; el efecto sobre
-            fuerza/hipertrofia depende del momento.
-          </p>
         </div>
       ),
     },
+    // 3) Respiración nasal (ya lo tenías)
     {
       tag: "Respiración",
       title: "Respirar por la nariz: más óxido nítrico, mejor sueño y foco",
       excerpt:
-        "La respiración nasal filtra, humedece y calienta el aire; además favorece la producción de óxido nítrico.",
+        "La respiración nasal filtra y humedece el aire y favorece la producción local de NO.",
       content: (
         <div className="space-y-3 text-gray-700">
           <p>
-            Respirar por la nariz incrementa la disponibilidad de óxido nítrico
-            (NO) en vías aéreas, lo que puede mejorar la oxigenación y la
-            regulación del flujo de aire. En la práctica diaria, esto se asocia
-            con menor ronquido y mejor calidad subjetiva de sueño en algunas
-            personas.
+            El NO nasal puede mejorar la oxigenación y la regulación del flujo
+            de aire. En el día a día, esto se asocia con menos ronquido y mejor
+            percepción de descanso en algunas personas.
           </p>
           <ul className="list-disc list-inside">
             <li>
-              <strong>Práctica diaria:</strong> intenta mantener la boca cerrada
-              en reposo y al caminar. En entrenamientos suaves, respira por la
-              nariz para entrenar el patrón.
+              Mantén la boca cerrada en reposo y al caminar (entrena el
+              patrón).
             </li>
+            <li>Usa tiras nasales si tienes congestión leve.</li>
+            <li>Consulta ante apnea u obstrucción severa.</li>
+          </ul>
+        </div>
+      ),
+    },
+    // 4) Meditación (nuevo)
+    {
+      tag: "Mindfulness",
+      title: "Meditación en 10 minutos: foco y calma entrenables",
+      excerpt:
+        "Una práctica corta, diaria y amable reduce estrés, mejora la atención y regula emociones.",
+      content: (
+        <div className="space-y-3 text-gray-700">
+          <p>
+            Siéntate cómodo/a, ojos suavemente cerrados y lleva la atención a
+            la respiración. Cuando la mente divague, vuelve sin juicio. Empieza
+            con 10 minutos diarios.
+          </p>
+          <ul className="list-disc list-inside">
+            <li>Marca una hora fija (idealmente mañana o mediodía).</li>
+            <li>Usa un temporizador y registra en un cuaderno.</li>
             <li>
-              <strong>Noche:</strong> tiras nasales pueden ayudar si tienes
-              congestión leve (no sustituyen atención médica).
-            </li>
-            <li>
-              <strong>Alerta:</strong> si hay apnea del sueño o obstrucción
-              severa, consulta a un profesional.
+              Alterna con NSDR/Yoga Nidra (10–20 min) para recuperación y foco.
             </li>
           </ul>
-          <p className="text-sm text-gray-600">
-            Evidencia: la respiración nasal favorece la producción de NO, con
-            efectos beneficiosos locales; se investigan impactos en rendimiento
-            y sueño.
+        </div>
+      ),
+    },
+    // 5) Ayuno Intermitente (nuevo)
+    {
+      tag: "Nutrición",
+      title: "Ayuno intermitente sin dogmas: empieza por 12/12",
+      excerpt:
+        "Primero ordena horarios y calidad de comida; luego prueba ventanas más cortas si te sienta bien.",
+      content: (
+        <div className="space-y-3 text-gray-700">
+          <p>
+            Comienza con 12/12 (p. ej., 7:30–19:30). Si te sienta bien, prueba
+            10/14 u 8/16. No es para todos: evita si tienes bajo peso, TCA,
+            embarazo o indicación médica en contra.
           </p>
+          <ul className="list-disc list-inside">
+            <li>Cena 2–3 h antes de dormir.</li>
+            <li>Prioriza proteína, fibra y comida real.</li>
+            <li>Observa energía, sueño y rendimiento.</li>
+          </ul>
+        </div>
+      ),
+    },
+    // 6) Técnicas de respiración (nuevo)
+    {
+      tag: "Respiración",
+      title: "Box y coherencia: regula tu sistema nervioso en 5 min",
+      excerpt:
+        "Box 4-4-4-4 para momentos de presión; coherencia 4-6 para calmarte y mantener claridad.",
+      content: (
+        <div className="space-y-3 text-gray-700">
+          <p>
+            La respiración es el control remoto del sistema nervioso. Usa
+            <em> box breathing</em> (4-4-4-4) en situaciones exigentes y{" "}
+            <em>coherencia</em> (4 s inhalar, 6 s exhalar) para bajar revoluciones.
+          </p>
+          <ul className="list-disc list-inside">
+            <li>Haz 5 minutos al día; aumenta si lo disfrutas.</li>
+            <li>Respira por la nariz y usa el diafragma.</li>
+            <li>Combina con luz matinal y caminatas para mayor efecto.</li>
+          </ul>
         </div>
       ),
     },
@@ -334,7 +382,7 @@ function Articles() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
 
   return (
-    <section id="articles" className="py-16 md:py-24 bg-white">
+    <section id="articles" className="scroll-mt-24 py-16 md:py-24 bg-white">
       <div className="mx-auto max-w-6xl px-5">
         <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-8">
           Artículos
@@ -380,62 +428,6 @@ function Articles() {
   );
 }
 
-function ArticlesSummary() {
-  return (
-    <section className="p-6 bg-white">
-      <div className="mx-auto max-w-6xl grid gap-6 md:grid-cols-3">
-        <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold">
-              Meditation: Unlocking Mental Clarity
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-gray-600">
-            <p>
-              Meditation trains your brain to be present, reduce stress, and
-              improve focus. Just 10–15 minutes daily can lower cortisol and
-              improve long-term emotional balance. Techniques like mindfulness
-              or NSDR are accessible even for beginners.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold">
-              Intermittent Fasting: Fuel for Longevity
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-gray-600">
-            <p>
-              Intermittent fasting is more than a diet — it’s a metabolic
-              reset. Following a 16/8 or 18/6 window can improve insulin
-              sensitivity, promote fat loss, and trigger autophagy (cellular
-              repair). The key: consistency and hydration.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold">
-              Breathing Techniques for Energy &amp; Calm
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="text-gray-600">
-            <p>
-              Breath is the bridge between body and mind. Nasal breathing
-              boosts nitric oxide, enhancing oxygen delivery. Practices like
-              box breathing calm the nervous system, while Wim Hof–style
-              breathing can boost energy and resilience.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-    </section>
-  );
-}
-
 function CTA() {
   return (
     <section id="newsletter" className="py-16 md:py-20">
@@ -448,7 +440,10 @@ function CTA() {
             Suscríbete y recibe hábitos fáciles de aplicar, resúmenes de
             estudios y herramientas para sentirte mejor.
           </p>
-          <form onSubmit={(e) => e.preventDefault()} className="mt-6 grid md:grid-cols-[1fr_auto] gap-3">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="mt-6 grid md:grid-cols-[1fr_auto] gap-3"
+          >
             <input
               type="email"
               required
@@ -477,9 +472,7 @@ function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-10 grid md:grid-cols-2 gap-6 items-center">
         <div>
           <p className="font-bold">The Hacks Blueprint</p>
-          <p className="text-sm text-gray-600">
-            Por Benjamin — Hobart, Tasmania
-          </p>
+          <p className="text-sm text-gray-600">Por Benjamin — Hobart, Tasmania</p>
         </div>
         <div className="md:text-right text-sm text-gray-600">
           © {new Date().getFullYear()} — Todos los derechos reservados.

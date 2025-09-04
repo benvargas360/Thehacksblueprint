@@ -129,6 +129,54 @@ function Trustbar() {
 }
 
 function Highlights() {
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
+export function Articles() {
+  return (
+    <section className="grid gap-6 md:grid-cols-3 p-6">
+      <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
+        <CardHeader>
+          <CardTitle className="text-xl font-semibold">Meditation: Unlocking Mental Clarity</CardTitle>
+        </CardHeader>
+        <CardContent className="text-gray-600">
+          <p>
+            Meditation trains your brain to be present, reduce stress, and improve focus.
+            Just 10–15 minutes daily can lower cortisol and improve long-term emotional balance.
+            Techniques like mindfulness or NSDR are accessible even for beginners.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
+        <CardHeader>
+          <CardTitle className="text-xl font-semibold">Intermittent Fasting: Fuel for Longevity</CardTitle>
+        </CardHeader>
+        <CardContent className="text-gray-600">
+          <p>
+            Intermittent fasting is more than a diet — it’s a metabolic reset.
+            Following a 16/8 or 18/6 window can improve insulin sensitivity,
+            promote fat loss, and trigger autophagy (cellular repair).
+            The key: consistency and hydration.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
+        <CardHeader>
+          <CardTitle className="text-xl font-semibold">Breathing Techniques for Energy & Calm</CardTitle>
+        </CardHeader>
+        <CardContent className="text-gray-600">
+          <p>
+            Breath is the bridge between body and mind. Nasal breathing boosts nitric oxide,
+            enhancing oxygen delivery. Practices like box breathing calm the nervous system,
+            while Wim Hof–style breathing can boost energy and resilience.
+          </p>
+        </CardContent>
+      </Card>
+    </section>
+  )
+}
+
   const cards = [
     {
       t: "Guías accionables",

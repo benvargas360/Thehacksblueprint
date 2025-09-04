@@ -150,7 +150,7 @@ function About() {
         <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
           {/* Reemplaza la URL por tu foto real si quieres */}
           <img
-            src="https://www.instagram.com/thehacksblueprint/"
+            src="https://scontent-syd2-1.cdninstagram.com/v/t51.2885-19/525580769_17868165234421639_6590502192457192706_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby45OTAuYzIifQ&_nc_ht=scontent-syd2-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QHAbHvNmD6w0F4m6J-MA7_JhkDBz0gejYNGG5rCdhLb4ynGxx8j4d2wJKrWVtdxwQ4&_nc_ohc=JhpiMLijtUYQ7kNvwEOQgaE&_nc_gid=RTVFWSOldgMB4CRX1gwCTw&edm=AIhb9MIBAAAA&ccb=7-5&oh=00_AfbcLzLxMzmW_tULLAuKAOkvD2TKbnsUlcl888HDYdKeyg&oe=68BF3E67&_nc_sid=8aafe2"
             alt="Foto de Benjamin"
             className="w-40 h-40 rounded-full object-cover ring-4 ring-emerald-100"
           />

@@ -2,8 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const bg =
-  "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920&auto=format&fit=crop"; // lush green leaves
-// A subtle secondary image used in cards (optional)
+  "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920&auto=format&fit=crop";
 const texture =
   "https://images.unsplash.com/photo-1520367745676-62d43b04a6ec?q=80&w=1200&auto=format&fit=crop";
 
@@ -35,10 +34,19 @@ function Header() {
           </div>
         </a>
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#about" className="text-gray-600 hover:text-gray-900">Sobre mí</a>
-          <a href="#articles" className="text-gray-600 hover:text-gray-900">Artículos</a>
-          <a href="#products" className="text-gray-600 hover:text-gray-900">Productos</a>
-          <a href="#newsletter" className="inline-flex items-center rounded-xl border border-gray-200 px-4 py-2 hover:bg-gray-50">
+          <a href="#about" className="text-gray-600 hover:text-gray-900">
+            Sobre mí
+          </a>
+          <a href="#articles" className="text-gray-600 hover:text-gray-900">
+            Artículos
+          </a>
+          <a href="#products" className="text-gray-600 hover:text-gray-900">
+            Productos
+          </a>
+          <a
+            href="#newsletter"
+            className="inline-flex items-center rounded-xl border border-gray-200 px-4 py-2 hover:bg-gray-50"
+          >
             Suscríbete
           </a>
         </nav>
@@ -50,7 +58,7 @@ function Header() {
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background image */}
+      {/* Imagen de fondo */}
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -60,8 +68,11 @@ function Hero() {
         }}
         aria-hidden
       />
-      {/* Soft gradient overlay */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/70 to-white" aria-hidden />
+      {/* Capa de degradado suave */}
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/70 to-white"
+        aria-hidden
+      />
 
       <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <motion.div
@@ -77,9 +88,9 @@ function Hero() {
             </span>{" "}
             para vivir mejor
           </h1>
-         <p className="mt-5 text-lg text-gray-700">
-  Calma, energía, enfoque. Lo esencial del wellness y el biohacking, explicado simple y respaldado por evidencia.
-</p>
+          <p className="mt-5 text-lg text-gray-700">
+            Calma, energía, enfoque. Lo esencial del wellness y el biohacking, explicado de forma sencilla y respaldado por evidencia.
+          </p>
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
             <a
@@ -105,12 +116,12 @@ function Hero() {
 }
 
 function Trustbar() {
- const items = [
-  "Ciencia aplicada",
-  "Simple y accionable",
-  "Energía sostenible",
-  "Bienestar integral",
-];
+  const items = [
+    "Ciencia aplicada",
+    "Simple y accionable",
+    "Energía sostenible",
+    "Bienestar integral",
+  ];
 
   return (
     <div className="border-y border-gray-100 bg-white/80">
@@ -129,54 +140,6 @@ function Trustbar() {
 }
 
 function Highlights() {
- import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-
-export function Articles() {
-  return (
-    <section className="grid gap-6 md:grid-cols-3 p-6">
-      <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold">Meditation: Unlocking Mental Clarity</CardTitle>
-        </CardHeader>
-        <CardContent className="text-gray-600">
-          <p>
-            Meditation trains your brain to be present, reduce stress, and improve focus.
-            Just 10–15 minutes daily can lower cortisol and improve long-term emotional balance.
-            Techniques like mindfulness or NSDR are accessible even for beginners.
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold">Intermittent Fasting: Fuel for Longevity</CardTitle>
-        </CardHeader>
-        <CardContent className="text-gray-600">
-          <p>
-            Intermittent fasting is more than a diet — it’s a metabolic reset.
-            Following a 16/8 or 18/6 window can improve insulin sensitivity,
-            promote fat loss, and trigger autophagy (cellular repair).
-            The key: consistency and hydration.
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card className="rounded-2xl shadow-md hover:shadow-lg transition">
-        <CardHeader>
-          <CardTitle className="text-xl font-semibold">Breathing Techniques for Energy & Calm</CardTitle>
-        </CardHeader>
-        <CardContent className="text-gray-600">
-          <p>
-            Breath is the bridge between body and mind. Nasal breathing boosts nitric oxide,
-            enhancing oxygen delivery. Practices like box breathing calm the nervous system,
-            while Wim Hof–style breathing can boost energy and resilience.
-          </p>
-        </CardContent>
-      </Card>
-    </section>
-  )
-}
-
   const cards = [
     {
       t: "Guías accionables",
@@ -198,7 +161,12 @@ export function Articles() {
           <div
             key={c.t}
             className="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow p-6"
-            style={{ backgroundImage: `url(${texture})`, backgroundSize: "cover", backgroundPosition: "center", backgroundBlendMode: "soft-light" }}
+            style={{
+              backgroundImage: `url(${texture})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundBlendMode: "soft-light",
+            }}
           >
             <h3 className="text-lg font-semibold">{c.t}</h3>
             <p className="mt-2 text-gray-700">{c.d}</p>
@@ -241,6 +209,7 @@ function CTA() {
     </section>
   );
 }
+
 function Articles() {
   type Post = {
     tag: string;
@@ -295,8 +264,8 @@ function Articles() {
         <div className="space-y-3 text-gray-700">
           <p>
             La exposición al frío activa noradrenalina y dopamina, mejora la
-            tolerancia al estrés y puede apoyar la recuperación. La clave es
-            <em> dosis y progresión</em>.
+            tolerancia al estrés y puede apoyar la recuperación. La clave es{" "}
+            <em>dosis y progresión</em>.
           </p>
           <ul className="list-disc list-inside">
             <li>
@@ -308,7 +277,7 @@ function Articles() {
             <li>
               <strong>Respira por la nariz</strong> y mantén el cuerpo relajado.
             </li>
-            <li>
+              <li>
               <strong>Contraindicaciones:</strong> cardiopatías, hipertensión no
               controlada, embarazo; consulta con tu médico.
             </li>
@@ -331,7 +300,7 @@ function Articles() {
       tag: "Respiración",
       title: "Respirar por la nariz: más óxido nítrico, mejor sueño y foco",
       excerpt:
-        "La respiración nasal filtra, humedece y calienta el aire; además favorece el óxido nítrico.",
+        "La respiración nasal filtra, humedece y calienta el aire; además favorece la producción de óxido nítrico.",
       content: (
         <div className="space-y-3 text-gray-700">
           <p>
@@ -414,6 +383,7 @@ function Articles() {
     </section>
   );
 }
+
 function Footer() {
   return (
     <footer className="border-t border-gray-100">

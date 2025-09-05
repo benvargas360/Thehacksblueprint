@@ -162,8 +162,8 @@ function About() {
               no me hacían bien. Un problema de salud me obligó a frenar y
               replantear mi vida. Empecé a estudiar bienestar, nutrición y
               prácticas ancestrales, y descubrí el biohacking como una forma
-              simple y efectiva de optimizar cuerpo y mente. Hoy comparto
-              protocolos claros y herramientas elegantes para ayudarte a vivir
+              simple y efectiva de optimizar cuerpo, mente y espiritu. Hoy comparto
+              protocolos claros y herramientas simples para ayudarte a vivir
               con intención, energía y calma.
             </p>
           </div>

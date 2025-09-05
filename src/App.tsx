@@ -163,7 +163,7 @@ function About() {
               replantear mi vida. Empecé a estudiar bienestar, nutrición y
               prácticas ancestrales, y descubrí el biohacking como una forma
               simple y efectiva de optimizar cuerpo, mente y espiritu. Hoy comparto
-              protocolos claros y herramientas simples para ayudarte a vivir
+              protocolos claros y herramientas sencillas para ayudarte a vivir
               con intención, energía y calma.
             </p>
           </div>
